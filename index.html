@@ -197,14 +197,15 @@
 
         <div class="rounded-2xl p-6 sm:p-10 bg-[#0F1118] border border-white/15 shadow-2xl">
           <form onsubmit="handleFormSubmit(event)" class="space-y-6">
+            <input type="hidden" name="access_key" value="1e2a6ec9-59a0-40f4-9baf-e84ec20fa33f">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
                 <label class="block text-xs font-semibold text-slate-300 mb-1">Unternehmen / Organisation *</label>
-                <input type="text" required class="w-full px-4 py-3 rounded-xl bg-[#141824] border border-white/10 text-sm text-white focus:outline-none focus:border-[#00F2FE]" placeholder="z. B. Universal Brands GmbH" />
+                <input type="text" name="unternehmen" required class="w-full px-4 py-3 rounded-xl bg-[#141824] border border-white/10 text-sm text-white focus:outline-none focus:border-[#00F2FE]" placeholder="z. B. Universal Brands GmbH" />
               </div>
               <div>
                 <label class="block text-xs font-semibold text-slate-300 mb-1">Ansprechpartner *</label>
-                <input type="text" required class="w-full px-4 py-3 rounded-xl bg-[#141824] border border-white/10 text-sm text-white focus:outline-none focus:border-[#00F2FE]" placeholder="Vor- und Nachname" />
+                <input type="text" name="name" required class="w-full px-4 py-3 rounded-xl bg-[#141824] border border-white/10 text-sm text-white focus:outline-none focus:border-[#00F2FE]" placeholder="Vor- und Nachname" />
               </div>
             </div>
 
