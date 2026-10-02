@@ -1,0 +1,6 @@
+{
+  "name": "KAMOFLASH® – EUTM Trademark Licensing Portal",
+  "description": "Official B2B licensing portal for registered European Union Trademark KAMOFLASH (EUTM No. 019087974) across 17 versatile categories.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
