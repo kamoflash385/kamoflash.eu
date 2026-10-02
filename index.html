@@ -622,16 +622,7 @@
     function openModal(id) { const m = document.getElementById(id); if (m) m.classList.remove('hidden'); }
     function closeModal(id) { const m = document.getElementById(id); if (m) m.classList.add('hidden'); }
 
-    function handleFormSubmit(e) {
-      e.preventDefault();
-      const toast = document.getElementById('toast');
-      if (toast) {
-        toast.classList.remove('hidden');
-        setTimeout(() => toast.classList.add('hidden'), 5000);
-      }
-      e.target.reset();
-    }
-
+    
     document.addEventListener('DOMContentLoaded', () => {
       renderPillarTabs();
       renderBenefits();
