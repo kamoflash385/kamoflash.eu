@@ -7,36 +7,23 @@
   <meta name="description" content="Offizielles B2B-Lizenzierungsportal für die eingetragene Unionsmarke KAMOFLASH (EUTM Nr. 019087974) über 17 Nizza-Klassen in allen 27 EU-Staaten." />
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
-    html, body { background-color: #08090D !important; color: #F1F5F9; font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
-    svg { display: inline-block; vertical-align: middle; flex-shrink: 0; }
-    .w-2 { width: 0.5rem !important; height: 0.5rem !important; }
-    .w-2\.5 { width: 0.625rem !important; height: 0.625rem !important; }
-    .w-3\.5 { width: 0.875rem !important; height: 0.875rem !important; }
-    .w-4 { width: 1rem !important; height: 1rem !important; }
-    .w-5 { width: 1.25rem !important; height: 1.25rem !important; }
-    .w-6 { width: 1.5rem !important; height: 1.5rem !important; }
-    .h-2 { height: 0.5rem !important; }
-    .h-2\.5 { height: 0.625rem !important; }
-    .h-3\.5 { height: 0.875rem !important; }
-    .h-4 { height: 1rem !important; }
-    .h-5 { height: 1.25rem !important; }
-    .h-6 { height: 1.5rem !important; }
-    .modal-backdrop { background: rgba(0, 0, 0, 0.88); backdrop-filter: blur(12px); }
-    .custom-scrollbar::-webkit-scrollbar { width: 6px; }
-    .custom-scrollbar::-webkit-scrollbar-thumb { background: rgba(0,242,254,0.3); border-radius: 3px; }
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { background-color: #08090D !important; color: #F1F5F9 !important; margin: 0; padding: 0; min-height: 100vh; font-family: system-ui, -apple-system, sans-serif; }
+    svg { display: inline-block !important; vertical-align: middle !important; flex-shrink: 0 !important; max-width: 100% !important; }
+    .modal-backdrop { background: rgba(0,0,0,0.88); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); }
   </style>
 </head>
-<body class="min-h-screen bg-[#08090D] text-slate-100 flex flex-col selection:bg-[#00F2FE]/30 selection:text-white">
+<body class="bg-[#08090D] text-slate-100 flex flex-col min-h-screen selection:bg-[#00F2FE]/30 selection:text-white">
 
   <!-- NAVBAR -->
-  <header class="sticky top-0 z-40 bg-[#08090D]/90 backdrop-blur-xl border-b border-white/10">
+  <header class="sticky top-0 z-40 bg-[#08090D]/95 backdrop-blur border-b border-white/10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
       <div class="flex items-center gap-3">
-        <a href="#top" class="text-2xl font-black tracking-tight text-white hover:text-[#00F2FE] transition flex items-center gap-1">
-          <span>KAMOFLASH</span><span class="text-xs font-mono text-[#00F2FE] border border-[#00F2FE]/40 rounded px-1 py-0.5">®</span>
+        <a href="#top" class="text-2xl font-black text-white hover:text-[#00F2FE] transition flex items-center gap-1">
+          <span>KAMOFLASH</span><span class="text-xs font-mono text-[#00F2FE] border border-[#00F2FE]/40 rounded px-1">®</span>
         </a>
-        <button onclick="openModal('cert-modal')" class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium text-emerald-400 bg-emerald-950/40 border border-emerald-500/30 rounded-full hover:bg-emerald-900/40 transition cursor-pointer">
-          <svg class="w-3.5 h-3.5 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        <button onclick="openModal('cert-modal')" class="inline-flex items-center gap-1.5 px-2.5 py-1 text-xs font-medium text-emerald-400 bg-emerald-950/40 border border-emerald-500/30 rounded-full hover:bg-emerald-900/40 transition cursor-pointer" title="Registerurkunde anzeigen">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
           <span data-i18n="nav_verified">EUTM Verifiziert</span>
           <span class="text-[10px] text-emerald-300 font-mono">019087974</span>
         </button>
@@ -56,14 +43,12 @@
 
       <div class="flex items-center gap-3">
         <div class="inline-flex rounded-lg bg-white/5 p-1 border border-white/10 text-xs font-semibold">
-          <button onclick="setLang('de')" class="px-2 py-1 rounded transition text-[#00F2FE] bg-[#00F2FE]/20" id="lang-de">DE</button>
-          <button onclick="setLang('en')" class="px-2 py-1 rounded transition text-slate-400 hover:text-white" id="lang-en">EN</button>
-          <button onclick="setLang('es')" class="px-2 py-1 rounded transition text-slate-400 hover:text-white" id="lang-es">ES</button>
-          <button onclick="setLang('fr')" class="px-2 py-1 rounded transition text-slate-400 hover:text-white" id="lang-fr">FR</button>
+          <button onclick="setLang('de')" id="lang-de" class="px-2 py-1 rounded text-[#00F2FE] bg-[#00F2FE]/20">DE</button>
+          <button onclick="setLang('en')" id="lang-en" class="px-2 py-1 rounded text-slate-400 hover:text-white">EN</button>
+          <button onclick="setLang('es')" id="lang-es" class="px-2 py-1 rounded text-slate-400 hover:text-white">ES</button>
+          <button onclick="setLang('fr')" id="lang-fr" class="px-2 py-1 rounded text-slate-400 hover:text-white">FR</button>
         </div>
-        <a href="#inquiry" class="hidden sm:inline-flex items-center px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-[#00F2FE] to-[#10FFA0] text-black hover:opacity-90 transition" data-i18n="nav_inquire">
-          Lizenzanfrage
-        </a>
+        <a href="#inquiry" class="hidden sm:inline-flex items-center px-4 py-2 rounded-xl text-xs font-bold uppercase tracking-wider bg-gradient-to-r from-[#00F2FE] to-[#10FFA0] text-black hover:opacity-90 transition" data-i18n="nav_inquire">Lizenzanfrage</a>
       </div>
     </div>
   </header>
@@ -73,9 +58,9 @@
     <section id="top" class="relative pt-12 pb-20 border-b border-white/5">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-center mb-6">
-          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10">
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/5 border border-white/10 text-xs font-mono text-slate-300">
             <span class="w-2 h-2 rounded-full bg-[#10FFA0] animate-pulse"></span>
-            <span class="text-xs font-mono text-slate-300" data-i18n="hero_pill">Offiziell eingetragene Unionsmarke (EUTM No. 019087974)</span>
+            <span data-i18n="hero_pill">Offiziell eingetragene Unionsmarke (EUTM No. 019087974)</span>
           </div>
         </div>
 
@@ -92,7 +77,7 @@
             <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
               <a href="#pillars" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-bold uppercase text-black bg-[#00F2FE] hover:bg-[#10FFA0] rounded-xl transition">
                 <span data-i18n="hero_cta_explore">Geschützte Branchen erkunden</span>
-                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
               </a>
               <a href="#inquiry" class="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold text-slate-200 bg-white/5 hover:bg-white/10 border border-white/15 rounded-xl transition">
                 <span data-i18n="hero_cta_inquire">Lizenzanfrage einreichen</span>
@@ -100,9 +85,9 @@
               </a>
             </div>
             <div class="pt-6 border-t border-white/10 grid grid-cols-2 sm:grid-cols-3 gap-4 text-left">
-              <div><span class="block text-[11px] font-mono text-slate-400 uppercase" data-i18n="lbl_reg">EUIPO Registernummer</span><span class="text-sm font-mono font-bold text-white">019087974</span></div>
-              <div><span class="block text-[11px] font-mono text-slate-400 uppercase" data-i18n="lbl_valid">Gültig bis</span><span class="text-sm font-mono font-bold text-[#10FFA0]">07/10/2034</span></div>
-              <div class="col-span-2 sm:col-span-1"><span class="block text-[11px] font-mono text-slate-400 uppercase" data-i18n="lbl_classes">Eingetragene Klassen</span><span class="text-sm font-mono font-bold text-[#00F2FE]">17 Nizza-Klassen</span></div>
+              <div><span class="block text-[11px] font-mono text-slate-400 uppercase">EUIPO Registernummer</span><span class="text-sm font-mono font-bold text-white">019087974</span></div>
+              <div><span class="block text-[11px] font-mono text-slate-400 uppercase">Gültig bis</span><span class="text-sm font-mono font-bold text-[#10FFA0]">07/10/2034</span></div>
+              <div class="col-span-2 sm:col-span-1"><span class="block text-[11px] font-mono text-slate-400 uppercase">Eingetragene Klassen</span><span class="text-sm font-mono font-bold text-[#00F2FE]">17 Nizza-Klassen</span></div>
             </div>
           </div>
 
@@ -111,7 +96,7 @@
               <div class="flex items-center justify-between pb-3 border-b border-white/10">
                 <div class="flex items-center gap-2">
                   <div class="w-8 h-8 rounded-lg bg-[#00F2FE]/10 flex items-center justify-center text-[#00F2FE]">
-                    <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
                   </div>
                   <div><span class="text-xs font-mono font-bold text-[#00F2FE]">EUIPO REGISTERED</span><span class="block text-[11px] text-slate-400">European Union</span></div>
                 </div>
@@ -132,7 +117,7 @@
               </div>
               <button onclick="openModal('cert-modal')" class="w-full py-2.5 px-4 rounded-xl text-xs font-bold uppercase tracking-wider text-slate-200 bg-white/5 hover:bg-white/10 border border-white/15 flex items-center justify-center gap-2 transition cursor-pointer">
                 <span data-i18n="hero_inspect_btn">Markenurkunde einsehen</span>
-                <svg class="w-3.5 h-3.5 text-[#00F2FE]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
               </button>
             </div>
           </div>
@@ -144,30 +129,14 @@
     <section id="traction" class="py-16 bg-[#0B0D14] border-b border-white/5">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-10">
-          <span class="text-xs font-mono uppercase tracking-widest text-[#00F2FE]" data-i18n="tr_kicker">OFFIZIELLE BRAND-TRACTION SEIT 2009</span>
-          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1" data-i18n="tr_title">Authentische Markenstärke mit messbarer Reichweite</h2>
+          <span class="text-xs font-mono uppercase tracking-widest text-[#00F2FE]">OFFIZIELLE BRAND-TRACTION SEIT 2009</span>
+          <h2 class="text-2xl sm:text-3xl font-extrabold text-white mt-1">Authentische Markenstärke mit messbarer Reichweite</h2>
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
-            <div class="text-3xl sm:text-4xl font-black text-[#00F2FE] mb-2 font-mono">1.000.000+</div>
-            <div class="text-sm font-semibold text-white" data-i18n="tr_stat1">Streams & Plays</div>
-            <div class="text-xs text-slate-400 mt-1" data-i18n="tr_stat1_sub">Spotify, Apple Music, YouTube</div>
-          </div>
-          <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
-            <div class="text-3xl sm:text-4xl font-black text-[#10FFA0] mb-2 font-mono">15.000+</div>
-            <div class="text-sm font-semibold text-white" data-i18n="tr_stat2">Tägliche Reichweite</div>
-            <div class="text-xs text-slate-400 mt-1" data-i18n="tr_stat2_sub">Gen-Z & Urban Lifestyle</div>
-          </div>
-          <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
-            <div class="text-3xl sm:text-4xl font-black text-white mb-2 font-mono">108+</div>
-            <div class="text-sm font-semibold text-white" data-i18n="tr_stat3">Events & Live-Shows</div>
-            <div class="text-xs text-slate-400 mt-1" data-i18n="tr_stat3_sub">Konzerte & Clubtouren</div>
-          </div>
-          <div class="p-6 rounded-2xl bg-white/5 border border-white/10">
-            <div class="text-3xl sm:text-4xl font-black text-[#D4FF00] mb-2 font-mono">50+ / 20+</div>
-            <div class="text-sm font-semibold text-white" data-i18n="tr_stat4">Releases & Musikvideos</div>
-            <div class="text-xs text-slate-400 mt-1" data-i18n="tr_stat4_sub">Katalog seit 2009</div>
-          </div>
+          <div class="p-6 rounded-2xl bg-white/5 border border-white/10"><div class="text-3xl sm:text-4xl font-black text-[#00F2FE] mb-2 font-mono">1.000.000+</div><div class="text-sm font-semibold text-white">Streams & Plays</div><div class="text-xs text-slate-400 mt-1">Spotify, Apple, YouTube</div></div>
+          <div class="p-6 rounded-2xl bg-white/5 border border-white/10"><div class="text-3xl sm:text-4xl font-black text-[#10FFA0] mb-2 font-mono">15.000+</div><div class="text-sm font-semibold text-white">Tägliche Reichweite</div><div class="text-xs text-slate-400 mt-1">Gen-Z & Urban Lifestyle</div></div>
+          <div class="p-6 rounded-2xl bg-white/5 border border-white/10"><div class="text-3xl sm:text-4xl font-black text-white mb-2 font-mono">108+</div><div class="text-sm font-semibold text-white">Events & Live-Shows</div><div class="text-xs text-slate-400 mt-1">Konzerte & Clubtouren</div></div>
+          <div class="p-6 rounded-2xl bg-white/5 border border-white/10"><div class="text-3xl sm:text-4xl font-black text-[#D4FF00] mb-2 font-mono">50+ / 20+</div><div class="text-sm font-semibold text-white">Releases & Videos</div><div class="text-xs text-slate-400 mt-1">Katalog seit 2009</div></div>
         </div>
       </div>
     </section>
@@ -176,25 +145,18 @@
     <section id="pillars" class="py-20">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-10 space-y-3">
-          <span class="text-xs font-mono font-bold tracking-widest text-[#00F2FE] uppercase block" data-i18n="sec_kicker">PORTFOLIO & WARENVERZEICHNIS</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-white" data-i18n="sec_title">17 Eingetragene Klassen in 5 Brand-Säulen</h2>
-          <p class="text-sm text-slate-300" data-i18n="sec_sub">Wählen Sie aus den geschützten Nizza-Klassen die Segmente für Ihre Markenexpansion oder Ihr Co-Branding.</p>
+          <span class="text-xs font-mono font-bold tracking-widest text-[#00F2FE] uppercase block">PORTFOLIO & WARENVERZEICHNIS</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">17 Eingetragene Klassen in 5 Brand-Säulen</h2>
+          <p class="text-sm text-slate-300">Wählen Sie aus den geschützten Nizza-Klassen die Segmente für Ihre Markenexpansion oder Ihr Co-Branding.</p>
         </div>
 
         <div class="max-w-xl mx-auto mb-8 relative">
           <input type="text" id="class-search" oninput="handleSearch(this.value)" placeholder="Klasse suchen (z. B. Streetwear, Drinks, Studio)..." class="w-full pl-11 pr-4 py-3 rounded-xl bg-[#10131E] border border-white/15 text-sm text-white placeholder-slate-500 focus:outline-none focus:border-[#00F2FE]" />
-          <svg class="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+          <svg width="16" height="16" class="text-slate-400 absolute left-4 top-1/2 -translate-y-1/2" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
         </div>
 
         <!-- Pillar Filters -->
-        <div class="flex flex-wrap justify-center gap-2 mb-8" id="pillar-tabs">
-          <button onclick="filterPillar('all')" class="p-tab px-4 py-2 rounded-xl text-xs font-bold uppercase transition bg-[#00F2FE] text-black cursor-pointer" data-pillar="all" data-i18n="tab_all">Alle 5 Säulen (17 Klassen)</button>
-          <button onclick="filterPillar('entertainment-tech')" class="p-tab px-3.5 py-2 rounded-xl text-xs font-semibold bg-[#10131E] text-slate-300 border border-white/10 hover:border-[#00F2FE]/50 cursor-pointer flex items-center gap-1.5" data-pillar="entertainment-tech"><span class="w-2 h-2 rounded-full bg-[#00F2FE]"></span><span>01 Entertainment & Tech</span></button>
-          <button onclick="filterPillar('fashion-luxury')" class="p-tab px-3.5 py-2 rounded-xl text-xs font-semibold bg-[#10131E] text-slate-300 border border-white/10 hover:border-[#D4FF00]/50 cursor-pointer flex items-center gap-1.5" data-pillar="fashion-luxury"><span class="w-2 h-2 rounded-full bg-[#D4FF00]"></span><span>02 Fashion & Streetwear</span></button>
-          <button onclick="filterPillar('food-gastronomy')" class="p-tab px-3.5 py-2 rounded-xl text-xs font-semibold bg-[#10131E] text-slate-300 border border-white/10 hover:border-[#FF6B00]/50 cursor-pointer flex items-center gap-1.5" data-pillar="food-gastronomy"><span class="w-2 h-2 rounded-full bg-[#FF6B00]"></span><span>03 Food & Gastro</span></button>
-          <button onclick="filterPillar('vehicles-lifestyle')" class="p-tab px-3.5 py-2 rounded-xl text-xs font-semibold bg-[#10131E] text-slate-300 border border-white/10 hover:border-[#9D4EDD]/50 cursor-pointer flex items-center gap-1.5" data-pillar="vehicles-lifestyle"><span class="w-2 h-2 rounded-full bg-[#9D4EDD]"></span><span>04 Vehicles & Lifestyle</span></button>
-          <button onclick="filterPillar('business-marketing')" class="p-tab px-3.5 py-2 rounded-xl text-xs font-semibold bg-[#10131E] text-slate-300 border border-white/10 hover:border-[#10FFA0]/50 cursor-pointer flex items-center gap-1.5" data-pillar="business-marketing"><span class="w-2 h-2 rounded-full bg-[#10FFA0]"></span><span>05 Marketing & Business</span></button>
-        </div>
+        <div class="flex flex-wrap justify-center gap-2 mb-8" id="pillar-tabs"></div>
 
         <!-- Quick Selection Bar -->
         <div class="mb-8 p-4 rounded-xl bg-gradient-to-r from-[#00F2FE]/15 via-[#10FFA0]/10 to-transparent border border-[#00F2FE]/40 flex flex-col sm:flex-row items-center justify-between gap-4">
@@ -216,76 +178,11 @@
     <section id="benefits" class="py-20 bg-[#0A0C14] border-t border-white/10">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <span class="text-xs font-mono font-bold tracking-widest text-[#00F2FE] uppercase block" data-i18n="ben_kicker">KOMMERZIELLE VORTEILE</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-white" data-i18n="ben_title">Warum KAMOFLASH Ihr strategischer Lizenz-Hebel ist</h2>
-          <p class="text-sm sm:text-base text-slate-300" data-i18n="ben_sub">Als Lizenzpartner profitieren Sie von einem rechtlich geschützten Markenuniversum mit hoher Lifestyle-Credibility.</p>
+          <span class="text-xs font-mono font-bold tracking-widest text-[#00F2FE] uppercase block">KOMMERZIELLE VORTEILE</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Warum KAMOFLASH Ihr strategischer Lizenz-Hebel ist</h2>
+          <p class="text-sm sm:text-base text-slate-300">Als Lizenzpartner profitieren Sie von einem rechtlich geschützten Markenuniversum mit hoher Lifestyle-Credibility.</p>
         </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <!-- Card 1 -->
-          <div class="rounded-2xl p-7 bg-[#0F111A] border border-white/10 hover:border-[#00F2FE]/40 transition space-y-4">
-            <div class="flex items-start justify-between">
-              <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-[#00F2FE]/10 border border-[#00F2FE]/30 text-[#00F2FE]">
-                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
-              </div>
-              <span class="text-xs font-mono font-semibold px-2.5 py-1 rounded-md border border-[#00F2FE]/30 bg-[#00F2FE]/10 text-[#00F2FE]" data-i18n="b1_tag">Heritage & Credibility</span>
-            </div>
-            <h3 class="text-xl font-bold text-white" data-i18n="b1_t">Etabliertes Ökosystem seit 2009</h3>
-            <p class="text-sm text-slate-300 leading-relaxed" data-i18n="b1_d">KAMOFLASH ist kein künstliches Retorten-Label, sondern ein über 15 Jahre gewachsenes Phänomen aus Hip-Hop, Street-Art, Event-Kultur und Underground-Energie.</p>
-            <div class="pt-4 border-t border-white/10 space-y-2 text-xs text-slate-200">
-              <div class="flex items-center gap-2"><svg class="w-3.5 h-3.5 text-[#10FFA0]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span data-i18n="b1_b1">Tief verankertes Subkultur-Branding</span></div>
-              <div class="flex items-center gap-2"><svg class="w-3.5 h-3.5 text-[#10FFA0]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span data-i18n="b1_b2">Sofortige emotionale Glaubwürdigkeit</span></div>
-            </div>
-          </div>
-
-          <!-- Card 2 -->
-          <div class="rounded-2xl p-7 bg-[#0F111A] border border-white/10 hover:border-[#10FFA0]/40 transition space-y-4">
-            <div class="flex items-start justify-between">
-              <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-[#10FFA0]/10 border border-[#10FFA0]/30 text-[#10FFA0]">
-                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/></svg>
-              </div>
-              <span class="text-xs font-mono font-semibold px-2.5 py-1 rounded-md border border-[#10FFA0]/30 bg-[#10FFA0]/10 text-[#10FFA0]" data-i18n="b2_tag">16 bis 47 Jahre</span>
-            </div>
-            <h3 class="text-xl font-bold text-white" data-i18n="b2_t">Direkte Gen-Z & Young Adult Zielgruppe</h3>
-            <p class="text-sm text-slate-300 leading-relaxed" data-i18n="b2_d">Zielgenaue Ansprache kaufkräftiger junger Erwachsener in der DACH-Region und ganz Europa über Musik, Streetwear, Gastronomie und digitale Medien.</p>
-            <div class="pt-4 border-t border-white/10 space-y-2 text-xs text-slate-200">
-              <div class="flex items-center gap-2"><svg class="w-3.5 h-3.5 text-[#10FFA0]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span data-i18n="b2_b1">Überdurchschnittliche Markenloyalität</span></div>
-              <div class="flex items-center gap-2"><svg class="w-3.5 h-3.5 text-[#10FFA0]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span data-i18n="b2_b2">Organischer Multiplikator-Effekt im Social Web</span></div>
-            </div>
-          </div>
-
-          <!-- Card 3 -->
-          <div class="rounded-2xl p-7 bg-[#0F111A] border border-white/10 hover:border-[#D4FF00]/40 transition space-y-4">
-            <div class="flex items-start justify-between">
-              <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-[#D4FF00]/10 border border-[#D4FF00]/30 text-[#D4FF00]">
-                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
-              </div>
-              <span class="text-xs font-mono font-semibold px-2.5 py-1 rounded-md border border-[#D4FF00]/30 bg-[#D4FF00]/10 text-[#D4FF00]" data-i18n="b3_tag">Cross-Promotion</span>
-            </div>
-            <h3 class="text-xl font-bold text-white" data-i18n="b3_t">Maximale Synergiepotenziale</h3>
-            <p class="text-sm text-slate-300 leading-relaxed" data-i18n="b3_d">Verknüpfen Sie Ihre Produkte mit Live-Shows, Musik-Releases, Streaming-Kampagnen und Künstler-Kollaborationen ohne Streuverluste.</p>
-            <div class="pt-4 border-t border-white/10 space-y-2 text-xs text-slate-200">
-              <div class="flex items-center gap-2"><svg class="w-3.5 h-3.5 text-[#10FFA0]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span data-i18n="b3_b1">360-Grad-Präsenz über physische & digitale Kanäle</span></div>
-              <div class="flex items-center gap-2"><svg class="w-3.5 h-3.5 text-[#10FFA0]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span data-i18n="b3_b2">Co-Branding auf Festivals und Events</span></div>
-            </div>
-          </div>
-
-          <!-- Card 4 -->
-          <div class="rounded-2xl p-7 bg-[#0F111A] border border-white/10 hover:border-[#9D4EDD]/40 transition space-y-4">
-            <div class="flex items-start justify-between">
-              <div class="w-12 h-12 rounded-xl flex items-center justify-center bg-[#9D4EDD]/10 border border-[#9D4EDD]/30 text-[#9D4EDD]">
-                <svg class="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
-              </div>
-              <span class="text-xs font-mono font-semibold px-2.5 py-1 rounded-md border border-[#9D4EDD]/30 bg-[#9D4EDD]/10 text-[#9D4EDD]" data-i18n="b4_tag">EUTM No. 019087974</span>
-            </div>
-            <h3 class="text-xl font-bold text-white" data-i18n="b4_t">Lückenlose EU-Rechtssicherheit</h3>
-            <p class="text-sm text-slate-300 leading-relaxed" data-i18n="b4_d">Vollumfängliche Rechtssicherheit in allen 27 EU-Staaten mit Schutz bis Oktober 2034. Klare Verträge, garantierter Schutz vor Nachahmern.</p>
-            <div class="pt-4 border-t border-white/10 space-y-2 text-xs text-slate-200">
-              <div class="flex items-center gap-2"><svg class="w-3.5 h-3.5 text-[#10FFA0]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span data-i18n="b4_b1">Monopolrechtlicher Markenschutz der Marke KAMOFLASH</span></div>
-              <div class="flex items-center gap-2"><svg class="w-3.5 h-3.5 text-[#10FFA0]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span data-i18n="b4_b2">Reibungslose Skalierung von Berlin bis Barcelona</span></div>
-            </div>
-          </div>
-        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="benefits-container"></div>
       </div>
     </section>
 
@@ -293,50 +190,50 @@
     <section id="inquiry" class="py-20 bg-[#08090D] border-t border-white/10">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-2xl mx-auto mb-12 space-y-3">
-          <span class="text-xs font-mono font-bold tracking-widest text-[#00F2FE] uppercase block" data-i18n="f_kicker">B2B LIZENZIERUNGSANFRAGE</span>
-          <h2 class="text-3xl sm:text-4xl font-extrabold text-white" data-i18n="f_title">Lizenzpartnerschaft jetzt initiieren</h2>
-          <p class="text-sm text-slate-300" data-i18n="f_sub">Senden Sie uns Ihr unverbindliches Interesse. Wir prüfen Ihre Anfrage und melden uns innerhalb von 24–48 Stunden.</p>
+          <span class="text-xs font-mono font-bold tracking-widest text-[#00F2FE] uppercase block">B2B LIZENZIERUNGSANFRAGE</span>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-white">Lizenzpartnerschaft jetzt initiieren</h2>
+          <p class="text-sm text-slate-300">Senden Sie uns Ihr unverbindliches Interesse. Wir prüfen Ihre Anfrage und melden uns innerhalb von 24–48 Stunden.</p>
         </div>
 
         <div class="rounded-2xl p-6 sm:p-10 bg-[#0F1118] border border-white/15 shadow-2xl">
           <form onsubmit="handleFormSubmit(event)" class="space-y-6">
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
-                <label class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="fl_co">Unternehmen / Organisation *</label>
+                <label class="block text-xs font-semibold text-slate-300 mb-1">Unternehmen / Organisation *</label>
                 <input type="text" required class="w-full px-4 py-3 rounded-xl bg-[#141824] border border-white/10 text-sm text-white focus:outline-none focus:border-[#00F2FE]" placeholder="z. B. Universal Brands GmbH" />
               </div>
               <div>
-                <label class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="fl_name">Ansprechpartner *</label>
+                <label class="block text-xs font-semibold text-slate-300 mb-1">Ansprechpartner *</label>
                 <input type="text" required class="w-full px-4 py-3 rounded-xl bg-[#141824] border border-white/10 text-sm text-white focus:outline-none focus:border-[#00F2FE]" placeholder="Vor- und Nachname" />
               </div>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
-                <label class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="fl_mail">Geschäftliche E-Mail *</label>
+                <label class="block text-xs font-semibold text-slate-300 mb-1">Geschäftliche E-Mail *</label>
                 <input type="email" required class="w-full px-4 py-3 rounded-xl bg-[#141824] border border-white/10 text-sm text-white focus:outline-none focus:border-[#00F2FE]" placeholder="name@company.com" />
               </div>
               <div>
-                <label class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="fl_tel">Telefonnummer</label>
+                <label class="block text-xs font-semibold text-slate-300 mb-1">Telefonnummer</label>
                 <input type="tel" class="w-full px-4 py-3 rounded-xl bg-[#141824] border border-white/10 text-sm text-white focus:outline-none focus:border-[#00F2FE]" placeholder="+49 ..." />
               </div>
             </div>
 
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
-                <label class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="fl_ind">Zielbranche / Sektor *</label>
+                <label class="block text-xs font-semibold text-slate-300 mb-1">Zielbranche / Sektor *</label>
                 <select class="w-full px-4 py-3 rounded-xl bg-[#141824] border border-white/10 text-sm text-white focus:outline-none focus:border-[#00F2FE]">
                   <option>Mode & Streetwear Bekleidung (Klasse 25)</option>
                   <option>Getränke & Energy Drinks (Klassen 32, 33)</option>
-                  <option>Food & Gastronomie (Klassen 29, 30, 43)</option>
-                  <option>Entertainment, Musik & Medien (Klassen 9, 38, 41)</option>
-                  <option>Automotive & Mikromobilität (Klasse 12)</option>
+                  <option>Food & Gastronomie (Klassen 29, 30)</option>
+                  <option>Entertainment, Musik & Medien (Klassen 09, 38, 41)</option>
+                  <option>Automotive & Mobilität (Klasse 12)</option>
                   <option>Schmuck, Uhren & Lifestyle (Klassen 14, 18)</option>
                   <option>Handel & Sonstiges</option>
                 </select>
               </div>
               <div>
-                <label class="block text-xs font-semibold text-slate-300 mb-1" data-i18n="fl_type">Gewünschte Lizenzart *</label>
+                <label class="block text-xs font-semibold text-slate-300 mb-1">Gewünschte Lizenzart *</label>
                 <select class="w-full px-4 py-3 rounded-xl bg-[#141824] border border-white/10 text-sm text-white focus:outline-none focus:border-[#00F2FE]">
                   <option>Exklusivlizenz (Kategoriespezifisch)</option>
                   <option>Produkt- & Markenkooperation</option>
@@ -346,29 +243,29 @@
               </div>
             </div>
 
-            <!-- SYNCED CLASSES CHIPS -->
+            <!-- VORGEMERKTE KLASSEN (FARBIG MIT SÄULENFARBEN) -->
             <div class="p-4 rounded-xl bg-black/40 border border-white/10 space-y-2">
               <div class="flex items-center justify-between">
-                <span class="text-xs font-semibold text-slate-200"><span data-i18n="form_classes_label">Vorgemerkte Klassen für Lizenzierungsanfrage</span> (<span id="form-classes-count">2</span>)</span>
-                <button type="button" onclick="clearAllSelectedClasses()" class="text-[11px] text-slate-400 hover:text-white cursor-pointer" data-i18n="form_classes_clear">Auswahl zurücksetzen</button>
+                <span class="text-xs font-semibold text-slate-200">Vorgemerkte Klassen für Lizenzierungsanfrage (<span id="form-classes-count">2</span>)</span>
+                <button type="button" onclick="clearAllSelectedClasses()" class="text-[11px] text-slate-400 hover:text-white cursor-pointer">Auswahl zurücksetzen</button>
               </div>
               <div id="form-selected-chips" class="flex flex-wrap gap-2 pt-1"></div>
             </div>
 
             <div>
-              <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1" data-i18n="fl_desc">Projektbeschreibung & Zeitplan *</label>
+              <label class="block text-xs font-semibold uppercase tracking-wider text-slate-300 mb-1">Projektbeschreibung & Zeitplan *</label>
               <textarea required rows="4" class="w-full px-4 py-3 rounded-xl bg-[#141824] border border-white/10 text-sm text-white focus:outline-none focus:border-[#00F2FE]" placeholder="Beschreiben Sie kurz Ihr Produktvorhaben, geplante Vertriebswege und den Zeithorizont..."></textarea>
             </div>
 
             <div class="flex items-center gap-3">
               <input type="checkbox" required id="consent-check" class="w-4 h-4 rounded border-white/20 bg-white/5 text-[#00F2FE]" />
               <label for="consent-check" class="text-xs text-slate-400">
-                <span data-i18n="f_agree">Ich stimme der Kontaktaufnahme und der Verarbeitung meiner Daten gemäß der</span>
-                <button type="button" onclick="openModal('privacy-modal')" class="text-[#00F2FE] underline ml-1 hover:text-white cursor-pointer" data-i18n="f_priv_link">Datenschutzerklärung</button> zu.
+                Ich stimme der Kontaktaufnahme und der Verarbeitung meiner Daten gemäß der
+                <button type="button" onclick="openModal('privacy-modal')" class="text-[#00F2FE] underline ml-1 hover:text-white cursor-pointer">Datenschutzerklärung</button> zu.
               </label>
             </div>
 
-            <button type="submit" class="w-full py-4 rounded-xl font-bold uppercase tracking-wider bg-gradient-to-r from-[#00F2FE] to-[#10FFA0] text-black hover:opacity-90 transition text-sm cursor-pointer" data-i18n="f_btn_submit">
+            <button type="submit" class="w-full py-4 rounded-xl font-bold uppercase tracking-wider bg-gradient-to-r from-[#00F2FE] to-[#10FFA0] text-black hover:opacity-90 transition text-sm cursor-pointer">
               Unverbindliche Lizenzanfrage absenden
             </button>
           </form>
@@ -383,22 +280,22 @@
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
         <div class="md:col-span-2 space-y-2">
           <div class="text-xl font-black text-white">KAMO<span class="text-[#00F2FE]">FLASH</span>®</div>
-          <p class="text-slate-400 max-w-md" data-i18n="ft_text">Offiziell eingetragene Unionsmarke des Amtes der Europäischen Union für geistiges Eigentum (EUIPO), Registernummer 019087974.</p>
+          <p class="text-slate-400 max-w-md">Offiziell eingetragene Unionsmarke des Amtes der Europäischen Union für geistiges Eigentum (EUIPO), Registernummer 019087974.</p>
           <div class="font-mono text-[11px] text-[#00F2FE]">EUTM 019087974 • Schutz bis 07/10/2034 • 27 EU-Staaten</div>
         </div>
         <div>
-          <div class="font-bold uppercase text-white text-xs mb-2" data-i18n="ft_contact">Kontakt</div>
+          <div class="font-bold uppercase text-white text-xs mb-2">Kontakt</div>
           <p class="font-semibold text-white">KAMOFLASH</p>
           <p>Saalburgallee 39, 60385 Frankfurt am Main</p>
           <p class="mt-1">E-Mail: <a href="mailto:info@kamoflash-recordz.com" class="text-[#00F2FE]">info@kamoflash-recordz.com</a></p>
           <p>Tel: +49 (0) 171 5635018</p>
         </div>
         <div>
-          <div class="font-bold uppercase text-white text-xs mb-2" data-i18n="ft_legal">Rechtliches</div>
+          <div class="font-bold uppercase text-white text-xs mb-2">Rechtliches</div>
           <ul class="space-y-1.5">
-            <li><button onclick="openModal('impressum-modal')" class="hover:text-white underline cursor-pointer" data-i18n="nav_imp">Impressum (§ 5 DDG)</button></li>
-            <li><button onclick="openModal('privacy-modal')" class="hover:text-white underline cursor-pointer" data-i18n="nav_priv">Datenschutz (DSGVO)</button></li>
-            <li><button onclick="openModal('cert-modal')" class="hover:text-white underline cursor-pointer" data-i18n="nav_eutm">EUIPO-Registerurkunde</button></li>
+            <li><button onclick="openModal('impressum-modal')" class="hover:text-white underline cursor-pointer">Impressum (§ 5 DDG)</button></li>
+            <li><button onclick="openModal('privacy-modal')" class="hover:text-white underline cursor-pointer">Datenschutz (DSGVO)</button></li>
+            <li><button onclick="openModal('cert-modal')" class="hover:text-white underline cursor-pointer">EUIPO-Registerurkunde</button></li>
           </ul>
         </div>
       </div>
@@ -409,20 +306,20 @@
     </div>
   </footer>
 
-  <!-- CERTIFICATE MODAL (ALL 27 EU MEMBER STATES) -->
+  <!-- EUIPO CERTIFICATE MODAL -->
   <div id="cert-modal" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4">
-    <div class="relative w-full max-w-3xl my-8 p-6 sm:p-8 rounded-2xl bg-[#0F1118] border border-emerald-500/30 text-slate-100 max-h-[90vh] overflow-y-auto custom-scrollbar">
+    <div class="relative w-full max-w-3xl my-8 p-6 sm:p-8 rounded-2xl bg-[#0F1118] border border-emerald-500/30 text-slate-100 max-h-[90vh] overflow-y-auto">
       <div class="flex items-start justify-between pb-4 border-b border-white/10 mb-5">
         <div class="flex items-center gap-3">
           <div class="w-10 h-10 rounded-xl bg-emerald-950/60 border border-emerald-500/40 flex items-center justify-center text-emerald-400">
-            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
           </div>
           <div>
             <span class="text-[11px] font-mono uppercase text-emerald-400 font-semibold block">Official Trademark Registry</span>
-            <h3 class="text-xl sm:text-2xl font-bold text-white" data-i18n="cert_m_title">Offizielles Registerzertifikat (EUIPO)</h3>
+            <h3 class="text-xl sm:text-2xl font-bold text-white">Offizielles Registerzertifikat (EUIPO)</h3>
           </div>
         </div>
-        <button onclick="closeModal('cert-modal')" class="p-2 text-slate-400 hover:text-white cursor-pointer">✕</button>
+        <button onclick="closeModal('cert-modal')" class="p-2 text-slate-400 hover:text-white cursor-pointer font-bold">✕</button>
       </div>
 
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs mb-5">
@@ -440,179 +337,97 @@
         </div>
       </div>
 
-      <!-- 27 EU-Staaten -->
-      <div class="space-y-2 mb-5">
-        <span class="text-xs font-mono font-semibold text-slate-300 uppercase block" data-i18n="cert_coverage">Rechtswirkung in allen 27 EU-Mitgliedstaaten:</span>
-        <div class="p-4 rounded-xl bg-white/5 border border-white/10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 text-xs font-mono text-slate-300">
-          <div><span class="text-[#10FFA0]">●</span> Austria</div><div><span class="text-[#10FFA0]">●</span> Belgium</div><div><span class="text-[#10FFA0]">●</span> Bulgaria</div><div><span class="text-[#10FFA0]">●</span> Croatia</div>
-          <div><span class="text-[#10FFA0]">●</span> Cyprus</div><div><span class="text-[#10FFA0]">●</span> Czechia</div><div><span class="text-[#10FFA0]">●</span> Denmark</div><div><span class="text-[#10FFA0]">●</span> Estonia</div>
-          <div><span class="text-[#10FFA0]">●</span> Finland</div><div><span class="text-[#10FFA0]">●</span> France</div><div><span class="text-[#10FFA0]">●</span> Germany</div><div><span class="text-[#10FFA0]">●</span> Greece</div>
-          <div><span class="text-[#10FFA0]">●</span> Hungary</div><div><span class="text-[#10FFA0]">●</span> Ireland</div><div><span class="text-[#10FFA0]">●</span> Italy</div><div><span class="text-[#10FFA0]">●</span> Latvia</div>
-          <div><span class="text-[#10FFA0]">●</span> Lithuania</div><div><span class="text-[#10FFA0]">●</span> Luxembourg</div><div><span class="text-[#10FFA0]">●</span> Malta</div><div><span class="text-[#10FFA0]">●</span> Netherlands</div>
-          <div><span class="text-[#10FFA0]">●</span> Poland</div><div><span class="text-[#10FFA0]">●</span> Portugal</div><div><span class="text-[#10FFA0]">●</span> Romania</div><div><span class="text-[#10FFA0]">●</span> Slovakia</div>
-          <div><span class="text-[#10FFA0]">●</span> Slovenia</div><div><span class="text-[#10FFA0]">●</span> Spain</div><div><span class="text-[#10FFA0]">●</span> Sweden</div>
+      <div class="p-4 rounded-xl bg-black/40 border border-white/10 space-y-3 mb-5">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-mono font-semibold text-[#00F2FE] uppercase tracking-wider">17 Eingetragene Nizza-Klassen (EUTM 019087974):</span>
+          <span class="text-xs text-slate-400 font-mono">17 Klassen</span>
         </div>
+        <div id="modal-classes-list" class="flex flex-wrap gap-1.5"></div>
       </div>
 
-      <div class="p-3 rounded-xl bg-white/5 border border-white/10 text-xs text-slate-300 mb-4">
-        <strong>Inhaber:</strong> KAMOFLASH · Saalburgallee 39, 60385 Frankfurt am Main, Deutschland
+      <div class="space-y-2 mb-5">
+        <span class="text-xs font-mono font-semibold text-slate-300 uppercase block">Rechtswirkung in allen 27 EU-Mitgliedstaaten:</span>
+        <div id="modal-countries-list" class="p-4 rounded-xl bg-white/5 border border-white/10 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 text-xs font-mono text-slate-300"></div>
       </div>
 
-      <div class="flex justify-end">
-        <button onclick="closeModal('cert-modal')" class="px-5 py-2 rounded-xl text-xs font-bold uppercase bg-[#00F2FE] text-black hover:bg-[#10FFA0] cursor-pointer" data-i18n="m_close">Schließen</button>
+      <div class="p-3.5 rounded-xl bg-[#00F2FE]/10 border border-[#00F2FE]/30 text-xs text-slate-300 flex items-center gap-3 mb-4">
+        <svg width="20" height="20" class="text-[#00F2FE] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        <span><strong>Legal Proprietor:</strong> KAMOFLASH, Saalburgallee 39, 60385 Frankfurt am Main, Germany. Alle Lizenzverhandlungen erfolgen direkt mit dem Rechteinhaber.</span>
+      </div>
+
+      <div class="pt-2 border-t border-white/10 flex justify-end">
+        <button onclick="closeModal('cert-modal')" class="px-6 py-2.5 rounded-xl text-xs font-bold uppercase text-black bg-[#00F2FE] hover:bg-[#10FFA0] transition cursor-pointer">Schließen</button>
       </div>
     </div>
   </div>
 
   <!-- IMPRESSUM MODAL -->
   <div id="impressum-modal" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4">
-    <div class="relative w-full max-w-2xl bg-[#0F1118] border border-white/20 rounded-2xl p-6 sm:p-8 text-slate-200 text-xs leading-relaxed max-h-[85vh] overflow-y-auto custom-scrollbar space-y-4">
-      <div class="flex justify-between pb-3 border-b border-white/10">
-        <h3 class="text-xl font-bold text-white" data-i18n="m_imp_title">Impressum & Rechtliche Angaben</h3>
-        <button onclick="closeModal('impressum-modal')" class="text-slate-400 hover:text-white cursor-pointer">✕</button>
-      </div>
-      <div>
-        <h4 class="font-bold text-white text-sm">Offizielle Markeninhaberin & Diensteanbieterin:</h4>
-        <p class="font-semibold text-white mt-1">KAMOFLASH</p>
-        <p>Saalburgallee 39, 60385 Frankfurt am Main, Deutschland</p>
-        <p class="mt-1">E-Mail: info@kamoflash-recordz.com | Telefon: +49 (0) 171 5635018</p>
-      </div>
-      <div class="pt-2 border-t border-white/10">
-        <h4 class="font-bold text-white text-sm">EUIPO-Markenschutz:</h4>
-        <p>Die Wortmarke „KAMOFLASH“ ist als Unionsmarke unter Registernummer <strong>019087974</strong> verbindlich geschützt.</p>
-      </div>
-      <div class="flex justify-end pt-2">
-        <button onclick="closeModal('impressum-modal')" class="px-4 py-2 bg-white/10 rounded-xl text-white cursor-pointer" data-i18n="m_close">Schließen</button>
-      </div>
+    <div class="relative w-full max-w-2xl bg-[#0F1118] border border-white/20 rounded-2xl p-6 sm:p-8 text-slate-200 text-xs leading-relaxed max-h-[85vh] overflow-y-auto space-y-4">
+      <div class="flex justify-between pb-3 border-b border-white/10"><h3 class="text-xl font-bold text-white">Impressum & Rechtliche Angaben</h3><button onclick="closeModal('impressum-modal')" class="text-slate-400 hover:text-white cursor-pointer font-bold">✕</button></div>
+      <div><h4 class="font-bold text-white text-sm">Offizielle Markeninhaberin & Diensteanbieterin:</h4><p class="font-semibold text-white mt-1">KAMOFLASH</p><p>Saalburgallee 39, 60385 Frankfurt am Main, Deutschland</p><p class="mt-1">E-Mail: info@kamoflash-recordz.com | Telefon: +49 (0) 171 5635018</p></div>
+      <div class="pt-2 border-t border-white/10"><h4 class="font-bold text-white text-sm">EUIPO-Markenschutz:</h4><p>Die Wortmarke „KAMOFLASH“ ist als Unionsmarke unter Registernummer <strong>019087974</strong> verbindlich geschützt.</p></div>
+      <div class="flex justify-end pt-2"><button onclick="closeModal('impressum-modal')" class="px-4 py-2 bg-white/10 rounded-xl text-white cursor-pointer">Schließen</button></div>
     </div>
   </div>
 
   <!-- PRIVACY MODAL -->
   <div id="privacy-modal" class="fixed inset-0 z-50 hidden modal-backdrop flex items-center justify-center p-4">
-    <div class="relative w-full max-w-2xl bg-[#0F1118] border border-white/20 rounded-2xl p-6 sm:p-8 text-slate-200 text-xs leading-relaxed max-h-[85vh] overflow-y-auto custom-scrollbar space-y-4">
-      <div class="flex justify-between pb-3 border-b border-white/10">
-        <h3 class="text-xl font-bold text-white" data-i18n="m_priv_title">Datenschutzerklärung (DSGVO)</h3>
-        <button onclick="closeModal('privacy-modal')" class="text-slate-400 hover:text-white cursor-pointer">✕</button>
-      </div>
-      <div class="space-y-3">
-        <p><strong>1. Verantwortlicher:</strong> KAMOFLASH, Saalburgallee 39, 60385 Frankfurt am Main (info@kamoflash-recordz.com).</p>
-        <p><strong>2. Datenerhebung:</strong> Daten aus dem B2B-Formular werden vertraulich und nur zur Bearbeitung der Lizenzanfrage genutzt (Art. 6 Abs. 1 lit. b DSGVO).</p>
-        <p><strong>3. Rechte:</strong> Sie haben jederzeit das Recht auf Auskunft, Berichtigung und Löschung Ihrer Daten.</p>
-      </div>
-      <div class="flex justify-end pt-2">
-        <button onclick="closeModal('privacy-modal')" class="px-4 py-2 bg-white/10 rounded-xl text-white cursor-pointer" data-i18n="m_close">Schließen</button>
-      </div>
+    <div class="relative w-full max-w-2xl bg-[#0F1118] border border-white/20 rounded-2xl p-6 sm:p-8 text-slate-200 text-xs leading-relaxed max-h-[85vh] overflow-y-auto space-y-4">
+      <div class="flex justify-between pb-3 border-b border-white/10"><h3 class="text-xl font-bold text-white">Datenschutzerklärung (DSGVO)</h3><button onclick="closeModal('privacy-modal')" class="text-slate-400 hover:text-white cursor-pointer font-bold">✕</button></div>
+      <div class="space-y-3"><p><strong>1. Verantwortlicher:</strong> KAMOFLASH, Saalburgallee 39, 60385 Frankfurt am Main (info@kamoflash-recordz.com).</p><p><strong>2. Datenerhebung:</strong> Daten aus dem B2B-Formular werden vertraulich und nur zur Bearbeitung der Lizenzanfrage genutzt (Art. 6 Abs. 1 lit. b DSGVO).</p><p><strong>3. Rechte:</strong> Sie haben jederzeit das Recht auf Auskunft, Berichtigung und Löschung Ihrer Daten.</p></div>
+      <div class="flex justify-end pt-2"><button onclick="closeModal('privacy-modal')" class="px-4 py-2 bg-white/10 rounded-xl text-white cursor-pointer">Schließen</button></div>
     </div>
   </div>
 
   <!-- TOAST -->
   <div id="toast" class="fixed bottom-6 right-6 z-50 hidden bg-[#0F1118] border border-emerald-500/50 text-white px-5 py-4 rounded-xl shadow-2xl flex items-center gap-3">
     <div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center font-bold">✓</div>
-    <div>
-      <div class="font-bold text-xs" data-i18n="t_ok_head">Anfrage übermittelt!</div>
-      <div class="text-[11px] text-slate-300" data-i18n="t_ok_msg">Wir prüfen Ihre Anfrage und melden uns in Kürze mit dem Trademark Dossier.</div>
-    </div>
+    <div><div class="font-bold text-xs">Anfrage übermittelt!</div><div class="text-[11px] text-slate-300">Wir prüfen Ihre Anfrage und melden uns in Kürze mit dem Trademark Dossier.</div></div>
   </div>
 
   <script>
-    const CLASSES_DATA = [
-      { num: 9, pillar: 'entertainment-tech', name: 'Ton- & Bildträger, Software, Audio-Equipment', desc: 'Tonaufnahmeträger, Software, Kopfhörer, digitale Medien.' },
-      { num: 12, pillar: 'vehicles-lifestyle', name: 'Fahrzeuge, E-Scooter, Fahrräder, Automotive-Tuning', desc: 'Fahrzeuge, Elektrofahrzeuge, E-Bikes, Custom-Teile.' },
-      { num: 14, pillar: 'fashion-luxury', name: 'Edelmetalle, Schmuckwaren, Luxusuhren, Chronometrie', desc: 'Juwelierwaren, Schmuckwaren, Uhren, Hip-Hop-Chains, Ringe.' },
-      { num: 16, pillar: 'entertainment-tech', name: 'Druckereierzeugnisse, Magazine, Plakate & Poster', desc: 'Poster, Artbooks, Sticker, Fanzines, Druckartikel.' },
-      { num: 18, pillar: 'fashion-luxury', name: 'Lederwaren, Taschen, Rucksäcke & Accessoires', desc: 'Taschen, Rucksäcke, Koffer, Designer-Gürteltaschen.' },
-      { num: 25, pillar: 'fashion-luxury', name: 'Bekleidung, Streetwear, Hoodies, Sneaker, Headwear', desc: 'Hoodies, T-Shirts, Tracksuits, Caps, Streetwear-Drops.' },
-      { num: 29, pillar: 'food-gastronomy', name: 'Fleischwaren, Kebab-Erzeugnisse, Snacks, Veganes', desc: 'Konserviertes Fleisch, Halal-Dönerkebab, vegane Cuts.' },
-      { num: 30, pillar: 'food-gastronomy', name: 'Kaffeespezialitäten, Gewürzmischungen, Soßen', desc: 'Kaffee, Saucen, Kebab-Soßen, Dressings, Backwaren.' },
-      { num: 31, pillar: 'vehicles-lifestyle', name: 'Landwirtschaftliche & gartenbauliche Erzeugnisse', desc: 'Frische Erzeugnisse, Saaten, natürliche Pflanzen.' },
-      { num: 32, pillar: 'food-gastronomy', name: 'Energy Drinks, Erfrischungsgetränke, Mineralwasser', desc: 'Energy Drinks, Softdrinks, isotonische Getränke, Mineralwasser.' },
-      { num: 33, pillar: 'food-gastronomy', name: 'Alkoholische Getränke, Spirituosen & Co-Branded Drinks', desc: 'Weine, Spirituosen, aromatisierte Wodkas, Premium-Drinks.' },
-      { num: 34, pillar: 'vehicles-lifestyle', name: 'Tabakwaren, E-Zigaretten, Vapes, Raucherzubehör', desc: 'Vapes, E-Zigaretten, Raucherartikel, Grinder, Papers.' },
-      { num: 35, pillar: 'business-marketing', name: 'Werbung, Marketing, Franchising-Konzepte, B2B-Handel', desc: 'Geschäftsführung, Lizenzvermarktung, Franchise-Konzepte.' },
-      { num: 38, pillar: 'entertainment-tech', name: 'Telekommunikation, Streaming-Dienste, Podcasts', desc: 'Musikübertragung, Podcasts, Video-Streaming, Web-Broadcast.' },
-      { num: 40, pillar: 'vehicles-lifestyle', name: 'Materialbearbeitung, Custom-Veredelung, Textildruck', desc: 'Textildruck, Siebdruck, CNC-Fertigung, Prototypen.' },
-      { num: 41, pillar: 'entertainment-tech', name: 'Musikproduktion, Konzerte, Festivals, Tonstudio', desc: 'Musikproduktion, Booking, Club-Events, Festivals, Studio.' },
-      { num: 42, pillar: 'entertainment-tech', name: 'Softwareentwicklung, Web-Plattformen, KI & Design', desc: 'Software-Entwicklung, Plattformen, UI/UX, Grafikdesign.' },
-      { num: 43, pillar: 'food-gastronomy', name: 'Gastronomiebetriebe, Food-Trucks, Kebab-Lounges', desc: 'Schnellrestaurants, Kebab-Stores, Bars, Event-Catering.' }
-    ];
+    const CLASSES = [
+      [9, 'entertainment-tech', 'Ton- & Bildträger, Software, Audio-Equipment', 'Digitale Tonträger, Musiktitel, Apps, Kopfhörer & Audiogeräte.'],
+      [12, 'vehicles-lifestyle', 'Fahrzeuge, E-Scooter, Bikes & Tuning', 'Lifestyle-Fahrzeuge, Elektro-Scooter, Custom-Mobilität & Zubehör.'],
+      [14, 'fashion-luxury', 'Edelmetalle, Schmuckwaren & Luxusuhren', 'Juwelierwaren, Uhren, Chains, Ringe & Premium-Accessoires.'],
+      [16, 'entertainment-tech', 'Druckereierzeugnisse, Magazine & Merchandising', 'Poster, Artbooks, Sticker, Fanzines, Druckartikel & Notizbücher.'],
+      [18, 'fashion-luxury', 'Lederwaren, Taschen & Rucksäcke', 'Designertaschen, Rucksäcke, Koffer, Crossbody- & Gürteltaschen.'],
+      [25, 'fashion-luxury', 'Bekleidung, Streetwear, Hoodies & Sneaker', 'Hoodies, T-Shirts, Tracksuits, Headwear, Caps & Sneaker-Drops.'],
+      [29, 'food-gastronomy', 'Fleischwaren, Kebab-Erzeugnisse & Snacks', 'Konservierte Fleischprodukte, Dönerkebab, vegane Fleischalternativen.'],
+      [30, 'food-gastronomy', 'Kaffeespezialitäten, Gewürze & Saucen', 'Kaffee, Saucen, Signature-Kebab-Dressings & Backwaren.'],
+      [31, 'vehicles-lifestyle', 'Landwirtschaftliche & gartenbauliche Erzeugnisse', 'Frische Erzeugnisse, Saaten, natürliche Zuchtpflanzen & Botanik.'],
+      [32, 'food-gastronomy', 'Energy Drinks, Softdrinks & Mineralwasser', 'Energy Drinks, Softdrinks, isotonische Erfrischungsgetränke.'],
+      [33, 'food-gastronomy', 'Alkoholische Getränke, Spirituosen & Cocktails', 'Craft-Biere, Weine, aromatisierte Wodkas & Signature-Drinks.'],
+      [34, 'vehicles-lifestyle', 'Tabakwaren, E-Zigaretten & Raucherzubehör', 'Vapes, E-Zigaretten, Grinder, Rolling-Papers & Zubehör.'],
+      [35, 'business-marketing', 'Werbung, Marketing & B2B-Handel', 'Geschäftsführung, Lizenzvermarktung, Franchise & Handelsmarken.'],
+      [38, 'entertainment-tech', 'Telekommunikation, Streaming-Dienste & Podcasts', 'Audio-/Videostreams, Live-Broadcastings, Foren & Social Media.'],
+      [40, 'vehicles-lifestyle', 'Materialbearbeitung, Custom-Veredelung & Druck', 'Textildruck, Siebdruck, CNC-Fräsen, Custom-Veredelung.'],
+      [41, 'entertainment-tech', 'Musikproduktion, Konzerte, Festivals & Studio', 'Musikproduktion, Artist-Booking, Festival-Shows, Tonstudio-Events.'],
+      [42, 'entertainment-tech', 'Softwareentwicklung, Web-Plattformen & KI', 'Entwicklung von Web-Plattformen, Apps, UI/UX & Digital-Design.']
+    ].map(c => ({ num: c[0], pillar: c[1], name: c[2], desc: c[3] }));
 
-    const PILLARS_CONFIG = {
+    const PILLARS = {
       'entertainment-tech': { name: '01 Entertainment & Tech', color: '#00F2FE' },
-      'fashion-luxury': { name: '02 Fashion & Streetwear', color: '#D4FF00' },
-      'food-gastronomy': { name: '03 Food & Gastro', color: '#FF6B00' },
+      'fashion-luxury': { name: '02 Fashion & Streetwear', color: '#10FFA0' },
+      'food-gastronomy': { name: '03 Food & Gastro', color: '#D4FF00' },
       'vehicles-lifestyle': { name: '04 Vehicles & Lifestyle', color: '#9D4EDD' },
-      'business-marketing': { name: '05 Marketing & Business', color: '#10FFA0' }
+      'business-marketing': { name: '05 Marketing & Business', color: '#FF007A' }
     };
 
+    const BENEFITS = [
+      { t: "Etabliertes Ökosystem seit 2009", b: "Heritage & Credibility", c: "#00F2FE", d: "KAMOFLASH ist kein künstliches Retorten-Label, sondern ein über 15 Jahre gewachsenes Phänomen aus Hip-Hop, Street-Art, Event-Kultur und Underground-Energie.", p: ["Tief verankertes Subkultur-Branding", "Sofortige emotionale Glaubwürdigkeit"], icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" },
+      { t: "Direkte Gen-Z & Young Adult Zielgruppe", b: "16 bis 47 Jahre", c: "#10FFA0", d: "Zielgenaue Ansprache kaufkräftiger junger Erwachsener in der DACH-Region und ganz Europa über Musik, Streetwear, Gastronomie und digitale Medien.", p: ["Überdurchschnittliche Markenloyalität", "Organischer Multiplikator-Effekt im Social Web"], icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" },
+      { t: "Maximale Synergiepotenziale", b: "Cross-Promotion", c: "#D4FF00", d: "Verknüpfen Sie Ihre Produkte mit Live-Shows, Musik-Releases, Streaming-Kampagnen und Künstler-Kollaborationen ohne Streuverluste.", p: ["360-Grad-Präsenz über physische & digitale Kanäle", "Co-Branding auf Festivals und Events"], icon: "M13 10V3L4 14h7v7l9-11h-7z" },
+      { t: "Lückenlose EU-Rechtssicherheit", b: "EUTM No. 019087974", c: "#9D4EDD", d: "Vollumfängliche Rechtssicherheit in allen 27 EU-Staaten mit Schutz bis Oktober 2034. Klare Verträge, garantierter Schutz vor Nachahmern.", p: ["Monopolrechtlicher Markenschutz der Marke KAMOFLASH", "Reibungslose Skalierung von Berlin bis Barcelona"], icon: "M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" }
+    ];
+
+    const EU_COUNTRIES = ['Austria','Belgium','Bulgaria','Croatia','Cyprus','Czech Republic','Denmark','Estonia','Finland','France','Germany','Greece','Hungary','Ireland','Italy','Latvia','Lithuania','Luxembourg','Malta','Netherlands','Poland','Portugal','Romania','Slovakia','Slovenia','Spain','Sweden'];
+
     const I18N = {
-      de: {
-        nav_verified: "EUTM Verifiziert", nav_pillars: "17 Schutzklassen", nav_traction: "Brand Traction", nav_benefits: "Partner-Vorteile", nav_eutm: "EU-Urkunde", nav_imp: "Impressum", nav_priv: "Datenschutz", nav_inquire: "Lizenzanfrage",
-        hero_pill: "Offiziell eingetragene Unionsmarke (EUTM No. 019087974)", hero_desc: "Sichern Sie sich exklusive B2B-Lizenzen für 17 eingetragene Klassen. Lückenloser Rechtsschutz beim Amt der Europäischen Union für geistiges Eigentum (EUIPO) über alle 27 EU-Staaten.",
-        hero_cta_explore: "Geschützte Branchen erkunden", hero_cta_inquire: "Lizenzanfrage einreichen", hero_inspect_btn: "Markenurkunde einsehen",
-        lbl_reg: "EUIPO Registernummer", lbl_valid: "Gültig bis", lbl_classes: "Eingetragene Klassen",
-        tr_kicker: "OFFIZIELLE BRAND-TRACTION SEIT 2009", tr_title: "Authentische Markenstärke mit messbarer Reichweite", tr_stat1: "Streams & Plays", tr_stat1_sub: "Spotify, Apple Music, YouTube", tr_stat2: "Tägliche Reichweite", tr_stat2_sub: "Gen-Z & Urban Lifestyle", tr_stat3: "Events & Live-Shows", tr_stat3_sub: "Konzerte & Clubtouren", tr_stat4: "Releases & Musikvideos", tr_stat4_sub: "Katalog seit 2009",
-        sec_kicker: "PORTFOLIO & WARENVERZEICHNIS", sec_title: "17 Eingetragene Klassen in 5 Brand-Säulen", sec_sub: "Wählen Sie aus den geschützten Nizza-Klassen die Segmente für Ihre Markenexpansion oder Ihr Co-Branding.", tab_all: "Alle 5 Säulen (17 Klassen)", lbl_marked: "Klassen für Anfrage markiert", btn_to_inquiry: "In Anfrage übernehmen",
-        ben_kicker: "KOMMERZIELLE VORTEILE", ben_title: "Warum KAMOFLASH Ihr strategischer Lizenz-Hebel ist", ben_sub: "Als Lizenzpartner profitieren Sie von einem rechtlich geschützten Markenuniversum mit hoher Lifestyle-Credibility.",
-        b1_tag: "Heritage & Credibility", b1_t: "Etabliertes Ökosystem seit 2009", b1_d: "KAMOFLASH ist kein künstliches Retorten-Label, sondern ein über 15 Jahre gewachsenes Phänomen aus Hip-Hop, Street-Art, Event-Kultur und Underground-Energie.", b1_b1: "Tief verankertes Subkultur-Branding", b1_b2: "Sofortige emotionale Glaubwürdigkeit",
-        b2_tag: "16 bis 47 Jahre", b2_t: "Direkte Gen-Z & Young Adult Zielgruppe", b2_d: "Zielgenaue Ansprache kaufkräftiger junger Erwachsener in der DACH-Region und ganz Europa über Musik, Streetwear, Gastronomie und digitale Medien.", b2_b1: "Überdurchschnittliche Markenloyalität", b2_b2: "Organischer Multiplikator-Effekt im Social Web",
-        b3_tag: "Cross-Promotion", b3_t: "Maximale Synergiepotenziale", b3_d: "Verknüpfen Sie Ihre Produkte mit Live-Shows, Musik-Releases, Streaming-Kampagnen und Künstler-Kollaborationen ohne Streuverluste.", b3_b1: "360-Grad-Präsenz über physische & digitale Kanäle", b3_b2: "Co-Branding auf Festivals und Events",
-        b4_tag: "EUTM No. 019087974", b4_t: "Lückenlose EU-Rechtssicherheit", b4_d: "Vollumfängliche Rechtssicherheit in allen 27 EU-Staaten mit Schutz bis Oktober 2034. Klare Verträge, garantierter Schutz vor Nachahmern.", b4_b1: "Monopolrechtlicher Markenschutz der Marke KAMOFLASH", b4_b2: "Reibungslose Skalierung von Berlin bis Barcelona",
-        f_kicker: "B2B LIZENZIERUNGSANFRAGE", f_title: "Lizenzpartnerschaft jetzt initiieren", f_sub: "Senden Sie uns Ihr unverbindliches Interesse. Wir prüfen Ihre Anfrage und melden uns innerhalb von 24–48 Stunden.",
-        fl_co: "Unternehmen / Organisation *", fl_name: "Ansprechpartner *", fl_mail: "Geschäftliche E-Mail *", fl_tel: "Telefonnummer", fl_ind: "Zielbranche / Sektor *", fl_type: "Gewünschte Lizenzart *", fl_desc: "Projektbeschreibung & Zeitplan *", form_classes_label: "Vorgemerkte Klassen für Lizenzierungsanfrage", form_classes_clear: "Auswahl zurücksetzen", f_agree: "Ich stimme der Kontaktaufnahme und der Verarbeitung meiner Daten gemäß der", f_priv_link: "Datenschutzerklärung", f_btn_submit: "Unverbindliche Lizenzanfrage absenden",
-        ft_text: "Offiziell eingetragene Unionsmarke des Amtes der Europäischen Union für geistiges Eigentum (EUIPO), Registernummer 019087974.", ft_contact: "Kontakt", ft_legal: "Rechtliches",
-        cert_m_title: "Offizielles Registerzertifikat (EUIPO)", cert_coverage: "Rechtswirkung in allen 27 EU-Mitgliedstaaten:", m_close: "Schließen", m_imp_title: "Impressum & Rechtliche Angaben", m_priv_title: "Datenschutzerklärung (DSGVO)", t_ok_head: "Anfrage übermittelt!", t_ok_msg: "Wir prüfen Ihre Anfrage und melden uns in Kürze mit dem Trademark Dossier.", btn_select: "+ Vormerken", btn_selected: "✓ Vorgemerkt"
-      },
-      en: {
-        nav_verified: "EUTM Verified", nav_pillars: "17 Protected Classes", nav_traction: "Brand Traction", nav_benefits: "Partner Benefits", nav_eutm: "EU Certificate", nav_imp: "Legal", nav_priv: "Privacy", nav_inquire: "Submit Inquiry",
-        hero_pill: "Officially Registered European Union Trademark (EUTM No. 019087974)", hero_desc: "Secure exclusive B2B licensing across 17 registered classes. Full legal coverage with the EUIPO across all 27 EU member states.",
-        hero_cta_explore: "Explore Protected Sectors", hero_cta_inquire: "Submit Licensing Inquiry", hero_inspect_btn: "View Trademark Certificate",
-        lbl_reg: "EUIPO Reg. No.", lbl_valid: "Valid Until", lbl_classes: "Registered Classes",
-        tr_kicker: "OFFICIAL BRAND TRACTION SINCE 2009", tr_title: "Authentic Brand Authority with Measurable Reach", tr_stat1: "Streams & Plays", tr_stat1_sub: "Spotify, Apple Music, YouTube", tr_stat2: "Daily Reach", tr_stat2_sub: "Gen-Z & Urban Demographics", tr_stat3: "Events & Shows", tr_stat3_sub: "Live Concerts & Club Tours", tr_stat4: "Releases & Videos", tr_stat4_sub: "Active Catalog since 2009",
-        sec_kicker: "PORTFOLIO & SPECIFICATIONS", sec_title: "17 Registered Classes in 5 Brand Pillars", sec_sub: "Choose the exact Nice classes for your brand expansion or co-branding partnership.", tab_all: "All 5 Pillars (17 Classes)", lbl_marked: "Classes tagged for inquiry", btn_to_inquiry: "Apply to Inquiry",
-        ben_kicker: "COMMERCIAL ADVANTAGES", ben_title: "Why KAMOFLASH is Your Strategic Licensing Lever", ben_sub: "As a licensing partner, tap into an authentically established trademark universe with full legal protection.",
-        b1_tag: "Heritage & Credibility", b1_t: "Established Ecosystem Since 2009", b1_d: "KAMOFLASH is a 15-year established subcultural phenomenon built on hip-hop, street art, event culture, and club energy.", b1_b1: "Deeply rooted subcultural branding", b1_b2: "Immediate emotional customer credibility",
-        b2_tag: "Ages 16 to 47", b2_t: "Direct Gen-Z & Young Adult Target Group", b2_d: "Direct reach into high-spend demographics across Europe through music, apparel, nightlife, and digital channels.", b2_b1: "Above-average brand loyalty", b2_b2: "Organic social media multiplier effect",
-        b3_tag: "Cross-Promotion", b3_t: "Maximum Synergy Potential", b3_d: "Seamlessly cross-promote your goods alongside live festivals, music drops, and high-visibility creator campaigns.", b3_b1: "360° presence across digital & physical channels", b3_b2: "Co-branding at festivals and tours",
-        b4_tag: "EUTM No. 019087974", b4_t: "Turnkey EU Legal Security", b4_d: "Unconditional protection across all 27 EU Member States valid through October 2034. Guaranteed protection against copycats.", b4_b1: "Proprietary legal monopoly on KAMOFLASH", b4_b2: "Frictionless expansion from Munich to Madrid",
-        f_kicker: "B2B LICENSING INQUIRY", f_title: "Initiate License Partnership", f_sub: "Submit your inquiry. Our commercial licensing desk will review your proposal within 24–48 hours.",
-        fl_co: "Company / Entity *", fl_name: "Contact Person *", fl_mail: "Corporate Email *", fl_tel: "Phone Number", fl_ind: "Target Industry *", fl_type: "License Model *", fl_desc: "Project Proposal & Timeline *", form_classes_label: "Selected Classes for License Inquiry", form_classes_clear: "Clear selection", f_agree: "I agree to data processing according to the", f_priv_link: "Privacy Policy", f_btn_submit: "Submit Official Licensing Proposal",
-        ft_text: "Officially registered European Union Trademark (EUTM No. 019087974) at the EUIPO.", ft_contact: "Contact", ft_legal: "Legal",
-        cert_m_title: "Official Trademark Registry Certificate (EUIPO)", cert_coverage: "Legal validity across all 27 EU Member States:", m_close: "Close", m_imp_title: "Impressum & Legal Notice", m_priv_title: "Privacy Policy (GDPR)", t_ok_head: "Inquiry Sent!", t_ok_msg: "Thank you for your interest. We will get back to you shortly.", btn_select: "+ Select", btn_selected: "✓ Selected"
-      },
-      es: {
-        nav_verified: "EUTM Verificado", nav_pillars: "17 Clases Protegidas", nav_traction: "Tracción", nav_benefits: "Ventajas", nav_eutm: "Certificado UE", nav_imp: "Aviso Legal", nav_priv: "Privacidad", nav_inquire: "Solicitar Licencia",
-        hero_pill: "Marca Registrada Oficial de la UE (EUTM Nº 019087974)", hero_desc: "Asegure licencias B2B exclusivas en 17 clases. Protección legal integral en los 27 países de la UE.",
-        hero_cta_explore: "Explorar Clases", hero_cta_inquire: "Solicitar Licencia", hero_inspect_btn: "Ver Certificado",
-        lbl_reg: "Registro EUIPO", lbl_valid: "Válido hasta", lbl_classes: "Clases Registradas",
-        tr_kicker: "TRACCIÓN DE MARCA DESDE 2009", tr_title: "Autoridad Auténtica con Alcance Medible", tr_stat1: "Streams y Plays", tr_stat1_sub: "Spotify, Apple Music, YouTube", tr_stat2: "Alcance Diario", tr_stat2_sub: "Audiencia Gen-Z y Urbana", tr_stat3: "Eventos y Shows", tr_stat3_sub: "Conciertos y Clubs", tr_stat4: "Lanzamientos", tr_stat4_sub: "Catálogo activo desde 2009",
-        sec_kicker: "CARTERA Y ESPECIFICACIONES", sec_title: "17 Clases Registradas en 5 Pilares", sec_sub: "Seleccione las clases exactas para su expansión de marca o co-branding.", tab_all: "Los 5 Pilares (17 Clases)", lbl_marked: "Clases seleccionadas", btn_to_inquiry: "Aplicar a Solicitud",
-        ben_kicker: "VALOR COMERCIAL ESTRATÉGICO", ben_title: "Por qué KAMOFLASH es su Palanca de Crecimiento", ben_sub: "Una marca con credibilidad cultural genuina combinada con blindaje legal pan-europeo.",
-        b1_tag: "Herencia & Credibilidad", b1_t: "Ecosistema Consolidado desde 2009", b1_d: "Más de 15 años de evolución cultural en hip hop, arte urbano, moda y ocio nocturno.", b1_b1: "Valor de marca genuino", b1_b2: "Autenticidad inmediata",
-        b2_tag: "De 16 a 47 Años", b2_t: "Audiencia Gen-Z y Jóvenes Adultos", b2_d: "Acceso directo a un segmento de alto consumo en Alemania, España y toda Europa.", b2_b1: "Fidelidad por encima de la media", b2_b2: "Presencia viral en redes sociales",
-        b3_tag: "Promoción Cruzada", b3_t: "Sinergias Multiplataforma", b3_d: "Asocie sus productos a espectáculos en vivo, giras musicales y activaciones digitales.", b3_b1: "Estrategia 360º física y digital", b3_b2: "Visibilidad en festivales",
-        b4_tag: "EUTM Nº 019087974", b4_t: "Seguridad Jurídica Total en la UE", b4_d: "Protección total en los 27 países de la UE vigente hasta octubre de 2034.", b4_b1: "Monopolio legal de la marca KAMOFLASH", b4_b2: "Expansión sin trabas legales",
-        f_kicker: "SOLICITUD DE LICENCIA B2B", f_title: "Iniciar Alianza de Licencia", f_sub: "Envíenos su propuesta. Le responderemos en 24-48 horas con el dosier oficial.",
-        fl_co: "Empresa *", fl_name: "Persona de Contacto *", fl_mail: "Correo Corporativo *", fl_tel: "Teléfono", fl_ind: "Sector Objetivo *", fl_type: "Modelo de Licencia *", fl_desc: "Descripción del Proyecto *", form_classes_label: "Clases Seleccionadas", form_classes_clear: "Restablecer", f_agree: "Acepto el tratamiento de mis datos de acuerdo con la", f_priv_link: "Política de Privacidad", f_btn_submit: "Enviar Solicitud de Licencia",
-        ft_text: "Marca registrada oficial de la Unión Europea (EUTM nº 019087974) en la EUIPO.", ft_contact: "Contacto", ft_legal: "Legal",
-        cert_m_title: "Certificado Oficial EUIPO", cert_coverage: "Protección jurídica en los 27 Estados miembros:", m_close: "Cerrar", m_imp_title: "Aviso Legal", m_priv_title: "Política de Privacidad", t_ok_head: "¡Enviado!", t_ok_msg: "Gracias por su interés.", btn_select: "+ Elegir", btn_selected: "✓ Marcada"
-      },
-      fr: {
-        nav_verified: "EUTM Vérifié", nav_pillars: "17 Classes Protégées", nav_traction: "Traction", nav_benefits: "Avantages", nav_eutm: "Certificat UE", nav_imp: "Mentions Légales", nav_priv: "Confidentialité", nav_inquire: "Demander Licence",
-        hero_pill: "Marque Officiellement Enregistrée de l'UE (EUTM N° 019087974)", hero_desc: "Licences B2B exclusives sur 17 classes enregistrées. Protection totale auprès de l'EUIPO dans les 27 pays de l'UE.",
-        hero_cta_explore: "Explorer les Classes", hero_cta_inquire: "Demander une Licence", hero_inspect_btn: "Voir le Certificat",
-        lbl_reg: "Registre EUIPO", lbl_valid: "Valide jusqu'au", lbl_classes: "Classes Enregistrées",
-        tr_kicker: "TRACTION OFFICIELLE DEPUIS 2009", tr_title: "Autorité de Marque et Portée Mesurable", tr_stat1: "Streams et Écoutes", tr_stat1_sub: "Spotify, Apple Music, YouTube", tr_stat2: "Portée Quotidienne", tr_stat2_sub: "Audience Gen-Z & Urbaine", tr_stat3: "Événements & Shows", tr_stat3_sub: "Concerts et Clubs", tr_stat4: "Sorties & Vidéos", tr_stat4_sub: "Catalogue depuis 2009",
-        sec_kicker: "PORTEFEUILLE & CLASSES", sec_title: "17 Classes Enregistrées en 5 Piliers", sec_sub: "Sélectionnez les classes adaptées à vos objectifs d'expansion commerciale.", tab_all: "Les 5 Piliers (17 Classes)", lbl_marked: "Classes sélectionnées", btn_to_inquiry: "Appliquer à la Demande",
-        ben_kicker: "AVANTAGES COMMERCIAUX", ben_title: "Pourquoi KAMOFLASH est Votre Levier Stratégique", ben_sub: "Bénéficiez d'une marque lifestyle authentique avec sécurité juridique clé en main.",
-        b1_tag: "Héritage & Crédibilité", b1_t: "Écosystème Établi depuis 2009", b1_d: "Plus de 15 ans d'histoire ancrée dans le hip-hop, le street art, l'événementiel et l'énergie urbaine.", b1_b1: "Marque authentique et spontanée", b1_b2: "Crédibilité immédiate",
-        b2_tag: "De 16 à 47 Ans", b2_t: "Cœur de Cible Gen-Z & Jeunes Adultes", b2_d: "Accès direct aux jeunes actifs à fort pouvoir d'achat en France et en Europe.", b2_b1: "Fidélisation de clientèle élevée", b2_b2: "Diffusion virale sur les réseaux",
-        b3_tag: "Promotion Croisée", b3_t: "Puissant Potentiel de Synergies", b3_d: "Associez vos produits aux concerts, aux festivals et aux créations visuelles.", b3_b1: "Stratégie 360° physique et digitale", b3_b2: "Présence événementielle prestigieuse",
-        b4_tag: "EUTM N° 019087974", b4_t: "Sécurité Juridique Clé en Main dans l’UE", b4_d: "Protection intégrale dans les 27 pays de l'UE valable jusqu'en octobre 2034.", b4_b1: "Monopole légal sur KAMOFLASH", b4_b2: "Déploiement fluide à travers l'UE",
-        f_kicker: "DEMANDE DE LICENCE B2B", f_title: "Initier un Partenariat de Licence", f_sub: "Envoyez-nous votre proposition. Réponse sous 24 à 48 heures.",
-        fl_co: "Entreprise *", fl_name: "Contact *", fl_mail: "E-mail Professionnel *", fl_tel: "Téléphone", fl_ind: "Secteur *", fl_type: "Modèle de Licence *", fl_desc: "Description du Projet *", form_classes_label: "Classes Sélectionnées", form_classes_clear: "Réinitialiser", f_agree: "J'accepte le traitement de mes données conformément à la", f_priv_link: "Politique de Confidentialité", f_btn_submit: "Envoyer la Demande",
-        ft_text: "Marque déposée de l'Union Européenne (EUTM n° 019087974) auprès de l'EUIPO.", ft_contact: "Contact", ft_legal: "Mentions Légales",
-        cert_m_title: "Certificat Officiel EUIPO", cert_coverage: "Protection dans les 27 États membres :", m_close: "Fermer", m_imp_title: "Mentions Légales", m_priv_title: "Confidentialité (RGPD)", t_ok_head: "Demande Envoyée !", t_ok_msg: "Merci pour votre intérêt.", btn_select: "+ Choisir", btn_selected: "✓ Choisie"
-      }
+      en: { nav_verified:"EUTM Verified", nav_pillars:"17 Protected Classes", nav_traction:"Brand Traction", nav_benefits:"Partner Benefits", nav_eutm:"EU Certificate", nav_imp:"Legal Notice", nav_priv:"Privacy", nav_inquire:"Submit Inquiry", hero_pill:"Officially Registered European Union Trademark (EUTM No. 019087974)", hero_desc:"Secure exclusive B2B licensing across 17 registered classes with full legal protection from the EUIPO across all 27 EU member states.", hero_cta_explore:"Explore Protected Classes", hero_cta_inquire:"Submit Licensing Inquiry", hero_inspect_btn:"View Official Certificate", lbl_marked:"Classes tagged for inquiry", btn_to_inquiry:"Apply to Inquiry", btn_select:"+ Select", btn_selected:"✓ Selected" },
+      es: { nav_verified:"EUTM Verificado", nav_pillars:"17 Clases Protegidas", nav_traction:"Tracción", nav_benefits:"Ventajas", nav_eutm:"Certificado UE", nav_imp:"Aviso Legal", nav_priv:"Privacidad", nav_inquire:"Solicitar Licencia", hero_pill:"Marca Registrada Oficial de la UE (EUTM Nº 019087974)", hero_desc:"Asegure licencias B2B exclusivas en 17 clases. Protección legal integral en los 27 países de la UE.", hero_cta_explore:"Explorar Clases", hero_cta_inquire:"Solicitar Licencia", hero_inspect_btn:"Ver Certificado", lbl_marked:"Clases seleccionadas", btn_to_inquiry:"Aplicar a Solicitud", btn_select:"+ Elegir", btn_selected:"✓ Marcada" },
+      fr: { nav_verified:"EUTM Vérifié", nav_pillars:"17 Classes Protégées", nav_traction:"Traction", nav_benefits:"Avantages", nav_eutm:"Certificat UE", nav_imp:"Mentions Légales", nav_priv:"Confidentialité", nav_inquire:"Demander Licence", hero_pill:"Marque Officiellement Enregistrée de l'UE (EUTM N° 019087974)", hero_desc:"Licences B2B exclusives sur 17 classes enregistrées. Protection totale auprès de l'EUIPO dans les 27 pays de l'UE.", hero_cta_explore:"Explorer les Classes", hero_cta_inquire:"Demander une Licence", hero_inspect_btn:"Voir le Certificat", lbl_marked:"Classes sélectionnées", btn_to_inquiry:"Appliquer à la Demande", btn_select:"+ Choisir", btn_selected:"✓ Choisie" }
     };
 
     let currentLang = 'de';
@@ -622,15 +437,11 @@
 
     function setLang(lang) {
       currentLang = lang;
-      ['de', 'en', 'es', 'fr'].forEach(l => {
+      ['de','en','es','fr'].forEach(l => {
         const btn = document.getElementById('lang-' + l);
-        if (btn) {
-          btn.className = (l === lang)
-            ? 'px-2 py-1 rounded transition text-[#00F2FE] bg-[#00F2FE]/20 font-bold'
-            : 'px-2 py-1 rounded transition text-slate-400 hover:text-white';
-        }
+        if (btn) btn.className = (l === lang) ? 'px-2 py-1 rounded text-[#00F2FE] bg-[#00F2FE]/20 font-bold' : 'px-2 py-1 rounded text-slate-400 hover:text-white';
       });
-      const dict = I18N[lang] || I18N.de;
+      const dict = I18N[lang] || {};
       document.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.getAttribute('data-i18n');
         if (dict[key]) el.innerText = dict[key];
@@ -639,16 +450,26 @@
       renderMarkedTagsAndFormChips();
     }
 
+    function renderPillarTabs() {
+      const tabs = document.getElementById('pillar-tabs');
+      if (!tabs) return;
+      let out = `<button onclick=\"filterPillar('all')\" class=\"p-tab px-4 py-2 rounded-xl text-xs font-bold uppercase transition bg-[#00F2FE] text-black cursor-pointer\" data-pillar=\"all\">Alle 5 Säulen (17 Klassen)</button>`;
+      Object.keys(PILLARS).forEach(k => {
+        const p = PILLARS[k];
+        out += `<button onclick=\"filterPillar('${k}')\" class=\"p-tab px-3.5 py-2 rounded-xl text-xs font-semibold bg-[#10131E] text-slate-300 border border-white/10 hover:border-white/20 cursor-pointer flex items-center gap-1.5\" data-pillar=\"${k}\"><span class=\"w-2 h-2 rounded-full\" style=\"background-color:${p.color}\"></span><span>${p.name}</span></button>`;
+      });
+      tabs.innerHTML = out;
+    }
+
     function filterPillar(pillarId) {
       currentFilter = pillarId;
       document.querySelectorAll('.p-tab').forEach(tab => {
         const p = tab.getAttribute('data-pillar');
-        const cfg = PILLARS_CONFIG[p];
+        const cfg = PILLARS[p];
         if (p === pillarId) {
           if (p === 'all') {
             tab.className = 'p-tab px-4 py-2 rounded-xl text-xs font-bold uppercase transition bg-[#00F2FE] text-black cursor-pointer';
-            tab.style.backgroundColor = '';
-            tab.style.borderColor = '';
+            tab.style.backgroundColor = ''; tab.style.borderColor = '';
           } else {
             tab.className = 'p-tab px-3.5 py-2 rounded-xl text-xs font-bold transition text-white border cursor-pointer flex items-center gap-1.5';
             tab.style.backgroundColor = cfg ? `${cfg.color}25` : '';
@@ -656,8 +477,7 @@
           }
         } else {
           tab.className = 'p-tab px-3.5 py-2 rounded-xl text-xs font-semibold transition bg-[#10131E] text-slate-300 border border-white/10 hover:border-white/20 cursor-pointer flex items-center gap-1.5';
-          tab.style.backgroundColor = '';
-          tab.style.borderColor = '';
+          tab.style.backgroundColor = ''; tab.style.borderColor = '';
         }
       });
       renderClasses();
@@ -687,9 +507,9 @@
     function renderClasses() {
       const container = document.getElementById('classes-container');
       if (!container) return;
-      const dict = I18N[currentLang] || I18N.de;
+      const dict = I18N[currentLang] || {};
 
-      const filtered = CLASSES_DATA.filter(item => {
+      const filtered = CLASSES.filter(item => {
         const matchesPillar = (currentFilter === 'all') || (item.pillar === currentFilter);
         const nameText = item.name.toLowerCase();
         const descText = item.desc.toLowerCase();
@@ -704,26 +524,22 @@
 
       container.innerHTML = filtered.map(c => {
         const isSelected = selectedClasses.includes(c.num);
-        const cfg = PILLARS_CONFIG[c.pillar] || PILLARS_CONFIG['entertainment-tech'];
-        const borderStyle = isSelected
-          ? `border-color: ${cfg.color}; box-shadow: 0 0 16px ${cfg.color}33; background-color: ${cfg.color}0a;`
-          : 'border-color: rgba(255,255,255,0.1); background-color: #0F1118;';
-
-        const btnClass = isSelected
-          ? 'w-full py-2.5 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer text-black'
-          : 'w-full py-2.5 px-3 rounded-xl text-xs font-semibold transition flex items-center justify-center gap-1.5 cursor-pointer text-slate-300 hover:text-white bg-white/5 hover:bg-white/10 border border-white/15';
-
-        const btnStyle = isSelected ? `background-color: ${cfg.color};` : '';
+        const cfg = PILLARS[c.pillar] || PILLARS['entertainment-tech'];
+        const borderStyle = isSelected ? `border-color:${cfg.color};box-shadow:0 0 16px ${cfg.color}33;background-color:${cfg.color}0a;` : 'border-color:rgba(255,255,255,0.1);background-color:#0F1118;';
+        const btnClass = isSelected ? 'w-full py-2.5 px-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-1.5 cursor-pointer text-black' : 'w-full py-2.5 px-3 rounded-xl text-xs font-semibold transition flex items-center justify-center gap-1.5 cursor-pointer text-slate-300 hover:text-white bg-white/5 hover:bg-white/10 border border-white/15';
+        const btnStyle = isSelected ? `background-color:${cfg.color};` : '';
+        const selectText = dict.btn_select || '+ Vormerken';
+        const selectedText = dict.btn_selected || '✓ Vorgemerkt';
 
         return `
           <div class="rounded-2xl p-6 border transition flex flex-col justify-between" style="${borderStyle}">
             <div>
               <div class="flex items-center justify-between mb-4">
-                <span class="text-xs font-mono font-bold px-2.5 py-1 rounded-md" style="background-color: ${cfg.color}20; color: ${cfg.color}; border: 1px solid ${cfg.color}40;">
+                <span class="text-xs font-mono font-bold px-2.5 py-1 rounded-md" style="background-color:${cfg.color}20;color:${cfg.color};border:1px solid ${cfg.color}40;">
                   Klasse ${c.num < 10 ? '0' + c.num : c.num}
                 </span>
                 <span class="text-[11px] font-semibold text-slate-400 flex items-center gap-1.5">
-                  <span class="w-1.5 h-1.5 rounded-full" style="background-color: ${cfg.color};"></span>
+                  <span class="w-1.5 h-1.5 rounded-full" style="background-color:${cfg.color};"></span>
                   ${cfg.name}
                 </span>
               </div>
@@ -731,26 +547,39 @@
               <p class="text-xs text-slate-300 mb-6 leading-relaxed">${c.desc}</p>
             </div>
             <button onclick="toggleClass(${c.num})" class="${btnClass}" style="${btnStyle}">
-              <span>${isSelected ? dict.btn_selected : dict.btn_select}</span>
+              <span>${isSelected ? selectedText : selectText}</span>
             </button>
           </div>
         `;
       }).join('');
     }
 
+    function renderBenefits() {
+      const container = document.getElementById('benefits-container');
+      if (!container) return;
+      container.innerHTML = BENEFITS.map(b => `
+        <div class="rounded-2xl p-7 bg-[#0F111A] border border-white/10 hover:border-white/20 transition space-y-4">
+          <div class="flex items-start justify-between">
+            <div class="w-12 h-12 rounded-xl flex items-center justify-center border" style="background-color:${b.c}15;border-color:${b.c}40;color:${b.c};">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="${b.icon}"/></svg>
+            </div>
+            <span class="text-xs font-mono font-semibold px-2.5 py-1 rounded-md border" style="background-color:${b.c}15;border-color:${b.c}40;color:${b.c};">${b.b}</span>
+          </div>
+          <h3 class="text-xl font-bold text-white">${b.t}</h3>
+          <p class="text-sm text-slate-300 leading-relaxed">${b.d}</p>
+          <div class="pt-4 border-t border-white/10 space-y-2 text-xs text-slate-200">
+            ${b.p.map(point => `<div class="flex items-center gap-2"><svg width="14" height="14" class="text-[#10FFA0]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg><span>${point}</span></div>`).join('')}
+          </div>
+        </div>
+      `).join('');
+    }
+
     function renderMarkedTagsAndFormChips() {
       const count = selectedClasses.length;
-      const navCount = document.getElementById('nav-pill-count');
-      if (navCount) navCount.innerText = count;
-
-      const barCount = document.getElementById('quick-bar-count');
-      if (barCount) barCount.innerText = count;
-
-      const quickText = document.getElementById('quick-count-text');
-      if (quickText) quickText.innerText = count;
-
-      const formCount = document.getElementById('form-classes-count');
-      if (formCount) formCount.innerText = count;
+      ['nav-pill-count', 'quick-bar-count', 'quick-count-text', 'form-classes-count'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.innerText = count;
+      });
 
       const chipsContainer = document.getElementById('form-selected-chips');
       if (!chipsContainer) return;
@@ -761,12 +590,12 @@
       }
 
       chipsContainer.innerHTML = selectedClasses.map(num => {
-        const item = CLASSES_DATA.find(c => c.num === num);
-        const cfg = item ? PILLARS_CONFIG[item.pillar] : { color: '#00F2FE' };
+        const item = CLASSES.find(c => c.num === num);
+        const cfg = item ? PILLARS[item.pillar] : { color: '#00F2FE' };
         const label = item ? `Kl. ${num < 10 ? '0' + num : num} – ${item.name.split(',')[0]}` : `Klasse ${num}`;
         return `
-          <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold text-white border transition shadow-sm" style="background-color: ${cfg.color}15; border-color: ${cfg.color}50;">
-            <span class="w-2 h-2 rounded-full" style="background-color: ${cfg.color};"></span>
+          <span class="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold text-white border transition shadow-sm" style="background-color:${cfg.color}15;border-color:${cfg.color}50;">
+            <span class="w-2 h-2 rounded-full" style="background-color:${cfg.color};"></span>
             <span>${label}</span>
             <button type="button" onclick="toggleClass(${num})" class="ml-1 text-slate-400 hover:text-white cursor-pointer font-bold">✕</button>
           </span>
@@ -774,15 +603,24 @@
       }).join('');
     }
 
-    function openModal(id) {
-      const m = document.getElementById(id);
-      if (m) m.classList.remove('hidden');
+    function renderModalElements() {
+      const modalClasses = document.getElementById('modal-classes-list');
+      if (modalClasses) {
+        modalClasses.innerHTML = CLASSES.map(c => {
+          const cfg = PILLARS[c.pillar] || { color: '#00F2FE' };
+          const shortName = c.name.split(',')[0];
+          return `<span class="px-2.5 py-1 rounded text-xs font-mono text-white border" style="background-color:${cfg.color}20;border-color:${cfg.color}50;"><strong style="color:${cfg.color};">Kl. ${c.num < 10 ? '0' + c.num : c.num}</strong> ${shortName}</span>`;
+        }).join('');
+      }
+
+      const modalCountries = document.getElementById('modal-countries-list');
+      if (modalCountries) {
+        modalCountries.innerHTML = EU_COUNTRIES.map(ctry => `<div><span class="text-[#10FFA0]">●</span> ${ctry}</div>`).join('');
+      }
     }
 
-    function closeModal(id) {
-      const m = document.getElementById(id);
-      if (m) m.classList.add('hidden');
-    }
+    function openModal(id) { const m = document.getElementById(id); if (m) m.classList.remove('hidden'); }
+    function closeModal(id) { const m = document.getElementById(id); if (m) m.classList.add('hidden'); }
 
     function handleFormSubmit(e) {
       e.preventDefault();
@@ -795,6 +633,9 @@
     }
 
     document.addEventListener('DOMContentLoaded', () => {
+      renderPillarTabs();
+      renderBenefits();
+      renderModalElements();
       setLang('de');
     });
   </script>
